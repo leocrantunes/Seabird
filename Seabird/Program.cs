@@ -15,7 +15,7 @@ namespace Seabird
             IAircraft aircraft = new Aircraft();
             aircraft.TakeOff();
             if (aircraft.Airborne) {
-                Console.WriteLine("The aircraft engine is fine, flying at "+ aircraft.Height + "meters");
+                Console.WriteLine("The aircraft engine is fine, flying at "+ aircraft.Height + " meters");
             }
 
             // Classic usage of an adapter

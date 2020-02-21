@@ -9,16 +9,24 @@ namespace Seabird
     // Adaptee implementation
     public class Seacraft : ISeacraft
     {
-        int speed = 0;
+        private int speed;
 
-        public virtual void IncreaseRevs()
-        {
-            speed += 10;
-            Console.WriteLine("Seacraft engine increases revs to " + speed + " knots");
-        }
+        private const int Acceleration = 10;
+
         public int Speed
         {
             get { return speed; }
+        }
+
+        public Seacraft()
+        {
+            speed = 0;
+        }
+
+        public virtual void IncreaseRevs()
+        {
+            speed += Acceleration;
+            Console.WriteLine("Seacraft engine increases revs to " + speed + " knots");
         }
     }
 }

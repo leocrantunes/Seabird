@@ -9,8 +9,8 @@ namespace Seabird
     // ITarget interface
     public interface IAircraft
     {
+        int Height { get; }
         bool Airborne { get; }
         void TakeOff();
-        int Height { get; }
     }
 }
