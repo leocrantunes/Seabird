@@ -9,25 +9,21 @@ namespace Seabird
     // Adapter
     public class Seabird : Seacraft, IAircraft
     {
-        private int height;
         private const int SeabirdTakeoffHeight = 50;
         private const int RateOfClimb = 100;
         private const int HeightClimbSpeed = 40;
 
         // Routes this straight back to the Aircraft
-        public int Height
-        {
-            get { return height; }
-        }
+        public int Height { get; private set; }
 
         public bool Airborne
         {
-            get { return height > SeabirdTakeoffHeight; }
+            get { return Height > SeabirdTakeoffHeight; }
         }
 
         public Seabird()
         {
-            height = 0;
+            Height = 0;
         }
 
         // A two-way adapter hides and routes the Target's methods
@@ -46,7 +42,7 @@ namespace Seabird
             base.IncreaseRevs();
             if (Speed > HeightClimbSpeed)
             {
-                height += RateOfClimb;
+                Height += RateOfClimb;
             }
         }
     }
