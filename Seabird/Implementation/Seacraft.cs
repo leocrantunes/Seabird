@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Seabird.Interface;
+using System;
 
-namespace Seabird
+namespace Seabird.Implementation
 {
-    // Adaptee implementation
+    /// <summary>
+    /// Adaptee implementation
+    /// </summary>
     public class Seacraft : ISeacraft
     {
         private const int Acceleration = 10;
+
         public int Speed{ get; private set; }
 
         public Seacraft()

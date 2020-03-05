@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Seabird.Interface;
 
-namespace Seabird
+namespace Seabird.Implementation
 {
-    // Adapter
+    /// <summary>
+    /// Adapter
+    /// </summary>
     public class Seabird : Seacraft, IAircraft
     {
         private const int SeabirdTakeoffHeight = 50;
         private const int RateOfClimb = 100;
         private const int HeightClimbSpeed = 40;
 
-        // Routes this straight back to the Aircraft
+        /// <summary>
+        /// Routes this straight back to the Aircraft
+        /// </summary>
         public int Height { get; private set; }
 
         public bool Airborne
@@ -26,8 +26,10 @@ namespace Seabird
             Height = 0;
         }
 
-        // A two-way adapter hides and routes the Target's methods
-        // Use Seacraft instructions to implement this one
+        /// <summary>
+        /// A two-way adapter hides and routes the Target's methods
+        /// Use Seacraft instructions to implement this one
+        /// </summary>
         public void TakeOff()
         {
             while (!Airborne)
@@ -36,7 +38,9 @@ namespace Seabird
             }
         }
 
-        // This method is common to both Target and Adaptee
+        /// <summary>
+        /// This method is common to both Target and Adaptee
+        /// </summary>
         public override void IncreaseRevs()
         {
             base.IncreaseRevs();

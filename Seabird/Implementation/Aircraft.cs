@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Seabird.Interface;
+using System;
 
-namespace Seabird
+namespace Seabird.Implementation
 {
     public sealed class Aircraft : IAircraft
     {
         private const int AircraftTakeOffHeight = 200;
         private const bool IsAirborne = true;
         private const bool IsNotAirborne = false;
+
         public bool Airborne { get; private set; }
+        
         public int Height { get; private set; }
 
         public Aircraft()
@@ -26,6 +25,5 @@ namespace Seabird
             Airborne = IsAirborne;
             Height = AircraftTakeOffHeight; // Meters
         }
-
     }
 }
