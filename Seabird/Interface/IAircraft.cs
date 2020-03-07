@@ -7,8 +7,16 @@
     {
         int Height { get; }
 
+        double Degree { get; }
+
         bool Airborne { get; }
 
         void TakeOff();
+
+        void Land();
+
+        void RaiseNose();
+
+        void LowerNose();
     }
 }

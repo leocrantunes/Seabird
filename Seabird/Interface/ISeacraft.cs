@@ -8,5 +8,13 @@
         int Speed { get; }
 
         void IncreaseRevs();
+
+        void DecreaseRevs();
+
+        void TurnOnEngine();
+
+        void TurnOffEngine();
+
+        void Wait(int minutes);
     }
 }
