@@ -10,9 +10,9 @@ namespace Seabird.Implementation
     {
         private const int Acceleration = 10;
 
-        public bool IsTurnedOn { get; private set; }
+        public bool IsTurnedOn { get; protected set; }
 
-        public int Speed { get; private set; }
+        public int Speed { get; protected set; }
 
         /// <summary>
         /// Default constructor

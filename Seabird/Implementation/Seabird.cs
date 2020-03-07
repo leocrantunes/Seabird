@@ -120,5 +120,28 @@ namespace Seabird.Implementation
                 Console.WriteLine("It is not possible to lower nose when seabird is not flying");
             }
         }
+
+        /// <summary>
+        /// Stores memento
+        /// </summary>
+        /// <returns></returns>
+        public Memento SaveMemento()
+        {
+            Console.WriteLine("Saving state --");
+            return new Memento(Height, IsTurnedOn, Speed, Degree);
+        }
+
+        /// <summary>
+        /// Restores memento
+        /// </summary>
+        /// <param name="memento"></param>
+        public void RestoreMemento(Memento memento)
+        {
+            Console.WriteLine("Restoring state --");
+            this.Height = memento.Height;
+            this.IsTurnedOn = memento.IsTurnedOn;
+            this.Speed = memento.Speed;
+            this.Degree = memento.Degree;
+        }
     }
 }

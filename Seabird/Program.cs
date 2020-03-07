@@ -22,6 +22,7 @@ namespace Seabird
             Console.WriteLine("Experiments successful; the Seabird flies!");
 
             ExecuteExperiment4();
+            ExecuteExperiment5();
 
             Console.ReadLine();
         }
@@ -112,6 +113,69 @@ namespace Seabird
             seacraft.DecreaseRevs();            
             seacraft.DecreaseRevs();
             seacraft.TurnOffEngine();
+        }
+
+        /// <summary>
+        /// Experiment 4 execution
+        /// </summary>
+        private static void ExecuteExperiment5()
+        {
+            Console.WriteLine("\nExperiment 5");
+
+            SeabirdImpl seabird = new SeabirdImpl();
+            SeabirdMemory seabirdMemory = new SeabirdMemory();
+
+            Console.WriteLine("(1)");
+            PrintSeabirdState(seabird);
+            
+            // S1: Store internal state before starting engine
+            seabirdMemory.Memento = seabird.SaveMemento();
+
+            // change state
+            seabird.TurnOnEngine();
+            PrintSeabirdState(seabird);
+
+            // Restore to S1 
+            seabird.RestoreMemento(seabirdMemory.Memento);
+            PrintSeabirdState(seabird);
+
+            Console.WriteLine("(2)");
+            // change state
+            seabird.TurnOnEngine();
+            seabird.IncreaseRevs();
+            PrintSeabirdState(seabird);
+
+            // Restore to S1
+            seabird.RestoreMemento(seabirdMemory.Memento);
+            PrintSeabirdState(seabird);
+
+            Console.WriteLine("(3)");
+            // change state
+            seabird.TurnOnEngine();
+            seabird.TakeOff();
+            PrintSeabirdState(seabird);
+
+            // Restore to S1
+            seabird.RestoreMemento(seabirdMemory.Memento);
+            PrintSeabirdState(seabird);
+
+            Console.WriteLine("(4)");
+            // change state
+            seabird.TurnOnEngine();
+            seabird.TakeOff();
+            seabird.IncreaseRevs();
+            seabird.Land();
+            PrintSeabirdState(seabird);
+
+            // Restore to S1
+            seabird.RestoreMemento(seabirdMemory.Memento);
+            PrintSeabirdState(seabird);
+        }
+
+        private static void PrintSeabirdState(SeabirdImpl seabird)
+        {
+            Console.WriteLine($"Seabird state -- IsTurnedOn: {seabird.IsTurnedOn.ToString()?.ToLower()}" +
+                $", Height: {seabird.Height} metres, Speed: {seabird.Speed} knots, Degree: {seabird.Degree}");  
         }
 
         /// <summary>
